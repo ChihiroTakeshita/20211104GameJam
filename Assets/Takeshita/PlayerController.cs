@@ -51,12 +51,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _isGrounded = true;
-        Debug.Log("enter " + collision.name);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         _isGrounded = false;
-        Debug.Log("exit " + collision.name);
     }
 }
