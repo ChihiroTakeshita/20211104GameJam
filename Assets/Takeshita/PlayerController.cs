@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     Vector3 _defaultScale;
     Vector2 _jumpForce;
     bool _isFlip;
-    bool _isGrounded;
+    public bool _isGrounded;
 
     private void Awake()
     {
@@ -51,10 +51,12 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _isGrounded = true;
+        Debug.Log("enter " + collision.name);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         _isGrounded = false;
+        Debug.Log("exit " + collision.name);
     }
 }
