@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _pauseDisplay;
     [Tooltip("タイトルシーンの番号")]
     [SerializeField] Scene _titleScene;
-    Scene _nowScene;
+    string _nowScene;
     [Tooltip("クリア後に進むシーンの番号")]
     [SerializeField] Scene _endScene;
     [Tooltip("クリア時にフェードアウトまでの待機時間")]
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _fade = _fadeImage.GetComponent<Image>();
-        _nowScene = SceneManager.GetActiveScene();
+        _nowScene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -74,19 +74,19 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(_nowScene.handle);
+        SceneManager.LoadScene(_nowScene);
     }
 
     public void Death()
     {
-        SceneManager.LoadScene(_nowScene.handle);
+        SceneManager.LoadScene(_nowScene);
     }
 
     public void Goal()
     {
         _endCanvas.SetActive(true);
         _timer.Stop();
-        _endText.text = $"{_nowScene.name}  Clear\nClear  Time{_timer._Timer.ToString("0.00")}";
+        _endText.text = $"{_nowScene}  Clear\nClear  Time{_timer._Timer.ToString("0.00")}";
         StartCoroutine(EndStay());
     }
 
