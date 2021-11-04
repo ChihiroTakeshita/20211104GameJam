@@ -40,6 +40,10 @@ public class PlayerLifeManager : MonoBehaviour
         {
             _checkPoint = collision.transform;
         }
+        else if(collision.tag == "Goal")
+        {
+            _gm.Goal();
+        }
     }
     public void Respown()
     {

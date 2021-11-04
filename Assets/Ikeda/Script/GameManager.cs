@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     bool _pause;
     [SerializeField] GameObject _pauseDisplay;
     [SerializeField] Scene _titleScene;
-    [SerializeField] Scene _nowScene;
+    Scene _nowScene;
+    [SerializeField] Scene _endScene;
+    [SerializeField] float _endWaitTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _nowScene = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
@@ -63,4 +65,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(_nowScene.handle);
     }
 
+    public void Goal()
+    {
+        StartCoroutine(EndStay());
+    }
+
+    IEnumerator EndStay()
+    {
+        yield return new WaitForSeconds(_endWaitTime);
+        SceneManager.LoadScene(_endScene.handle);
+    }
 }
