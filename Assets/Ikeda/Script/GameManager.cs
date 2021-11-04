@@ -10,15 +10,23 @@ public class GameManager : MonoBehaviour
     public static event Action _OnPause;
     public static event Action _OnResume;
     bool _pause;
+    [Tooltip("ikeda/PauseCamvasのインスタンスを入れる")]
     [SerializeField] GameObject _pauseDisplay;
+    [Tooltip("タイトルシーンの番号")]
     [SerializeField] Scene _titleScene;
     Scene _nowScene;
+    [Tooltip("クリア後に進むシーンの番号")]
     [SerializeField] Scene _endScene;
+    [Tooltip("クリア時にフェードアウトまでの待機時間")]
     [SerializeField] float _endWaitTime;
-    [SerializeField] Text _endText;
+    [Tooltip("ikeda/EndCanvasのインスタンス")]
     [SerializeField] GameObject _endCanvas;
+    [Tooltip("EndCanvasのインスタンス下のテキスト")]
+    [SerializeField] Text _endText;
+    [Tooltip("EndCanvasのインスタンス下のイメージ")]
     [SerializeField] GameObject _fadeImage;
     Image _fade;
+    [Tooltip("画面が白くなっていくのにかかる時間")]
     [SerializeField] float _chengeTime;
 
     // Start is called before the first frame update

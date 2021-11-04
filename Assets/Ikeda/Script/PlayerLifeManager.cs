@@ -6,11 +6,17 @@ using UnityEngine.UI;
 public class PlayerLifeManager : MonoBehaviour
 {
 
+    [Tooltip("スタート時の残機")]
     [SerializeField] int _life;
+    [Tooltip("ゲームマネージャー")]
     [SerializeField] GameManager _gm;
+    [Tooltip("スタート地点")]
     [SerializeField] Transform _checkPoint;
+    [Tooltip("ikeda/RespownCanvasのインスタンス")]
     [SerializeField] GameObject _whiteOut;
+    [Tooltip("リスポーン時の待機時間")]
     [SerializeField] float _waitTime;
+    [Tooltip("RespownCanvasのインスタンス下のテキスト")]
     [SerializeField] Text _text;
 
     private void Start()

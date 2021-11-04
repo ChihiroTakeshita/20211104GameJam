@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
+    [Tooltip("ゲームシーン")]
     [SerializeField] Scene _gameScene;
 
     public void SceneChange()
