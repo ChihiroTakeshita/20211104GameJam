@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockGenerator : MonoBehaviour
@@ -16,21 +15,11 @@ public class BlockGenerator : MonoBehaviour
         _spawnOffset = new Vector3(1, 0, 0);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnBlock(Vector3 playerPos, bool isFlip)
     {
         var block = Instantiate(_blockPref);
+        if(_existBlocks.Count > 0)
+            _existBlocks[_existBlocks.Count - 1].GetComponent<BlockController>().isLast = false;
         if(isFlip)
         {
             block.transform.position = playerPos - _spawnOffset;
@@ -39,6 +28,7 @@ public class BlockGenerator : MonoBehaviour
         {
             block.transform.position = playerPos + _spawnOffset;
         }
+
         _existBlocks.Add(block);
         if(_existBlocks.Count > _maxBlocks)
         {
