@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     bool _pause;
     [SerializeField] GameObject _pauseDisplay;
     [SerializeField] Scene _titleScene;
-    [SerializeField] int _life;
+    [SerializeField] Scene _nowScene;
 
     // Start is called before the first frame update
     void Start()
@@ -55,11 +55,12 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-
+        SceneManager.LoadScene(_nowScene.handle);
     }
 
     public void Death()
     {
-
+        SceneManager.LoadScene(_nowScene.handle);
     }
+
 }
