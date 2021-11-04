@@ -7,7 +7,7 @@ public class PlayerLifeManager : MonoBehaviour
 
     [SerializeField] int _life;
 
-    public void Damage()
+    public static void Damage()
     {
 
     }
