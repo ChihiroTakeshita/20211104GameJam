@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLifeManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerLifeManager : MonoBehaviour
     [SerializeField] Transform _checkPoint;
     [SerializeField] GameObject _whiteOut;
     [SerializeField] float _waitTime;
+    [SerializeField] Text _text;
 
     private void Start()
     {
@@ -52,6 +54,7 @@ public class PlayerLifeManager : MonoBehaviour
         transform.position = _checkPoint.position;
         this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         _whiteOut.SetActive(true);
+        _text.text = $"Life {_life}";
         StartCoroutine(RespownStay());
     }
 
