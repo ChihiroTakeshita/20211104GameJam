@@ -8,6 +8,8 @@ public class PlayerLifeManager : MonoBehaviour
     [SerializeField] int _life;
     [SerializeField] GameManager _gm;
     [SerializeField] Transform _checkPoint;
+    [SerializeField] GameObject _whiteOut;
+    [SerializeField] float _waitTime;
 
     private void Start()
     {
@@ -49,5 +51,14 @@ public class PlayerLifeManager : MonoBehaviour
     {
         transform.position = _checkPoint.position;
         this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        _whiteOut.SetActive(true);
+        StartCoroutine(RespownStay());
+    }
+
+    IEnumerator RespownStay()
+    {
+        yield return new WaitForSeconds(_waitTime);
+        _whiteOut.SetActive(false);
+        _gm.Resume();
     }
 }

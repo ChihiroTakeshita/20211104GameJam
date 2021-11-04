@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static Action _OnPause;
-    public static Action _OnResume;
+    public static Action _OnPauseEvent;
+    public static Action _OnResumeEvent;
     bool _pause;
     [SerializeField] GameObject _pauseDisplay;
     [SerializeField] Scene _titleScene;
@@ -43,16 +43,16 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    void Pause()
+    public void Pause()
     {
-        _OnPause();
+        _OnPauseEvent();
         _pause = true;
         _pauseDisplay.SetActive(true);
     }
 
-    void Resume()
+    public void Resume()
     {
-        _OnResume();
+        _OnResumeEvent();
         _pause = false;
         _pauseDisplay.SetActive(false);
     }

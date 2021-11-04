@@ -6,14 +6,14 @@ public class IkedaTester01 : MonoBehaviour
 {
     private void OnEnable()
     {
-        GameManager._OnPause += Pause;
-        GameManager._OnResume += Resume;
+        GameManager._OnPauseEvent += Pause;
+        GameManager._OnResumeEvent += Resume;
     }
 
     private void OnDisable()
     {
-        GameManager._OnPause -= Pause;
-        GameManager._OnResume -= Resume;
+        GameManager._OnPauseEvent -= Pause;
+        GameManager._OnResumeEvent -= Resume;
     }
 
     public void Pause()
