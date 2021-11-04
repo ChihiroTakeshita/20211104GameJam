@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static Action _OnPauseEvent;
-    public static Action _OnResumeEvent;
+    public static event Action _OnPause;
+    public static event Action _OnResume;
     bool _pause;
     [SerializeField] GameObject _pauseDisplay;
     [SerializeField] Scene _titleScene;
