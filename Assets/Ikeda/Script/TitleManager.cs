@@ -11,4 +11,11 @@ public class TitleManager : MonoBehaviour
     {
         SceneManager.LoadScene(_gameScene.handle);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
 }
