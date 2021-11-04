@@ -6,7 +6,7 @@ public class BlockController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(isLast)
+        if(collision.gameObject.tag != "Player" && isLast)
         {
             this.transform.position += new Vector3(0, 1, 0);
         }

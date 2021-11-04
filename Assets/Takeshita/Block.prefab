@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6596589525720957270}
   - component: {fileID: 7944222509817821926}
   - component: {fileID: 2789290862820590959}
-  - component: {fileID: 9128855715468050775}
+  - component: {fileID: 3532268938919696151}
   m_Layer: 0
-  m_Name: block_kari
+  m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53d7679083aede43b881a8613e9edf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLast: 1
 --- !u!61 &7944222509817821926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,8 +145,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!61 &9128855715468050775
-BoxCollider2D:
+--- !u!58 &3532268938919696151
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,15 +159,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
-  m_EdgeRadius: 0
+  m_Radius: 0.4
