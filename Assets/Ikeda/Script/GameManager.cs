@@ -45,14 +45,14 @@ public class GameManager : MonoBehaviour
     }
     public void Pause()
     {
-        _OnPauseEvent();
+        _OnPause();
         _pause = true;
         _pauseDisplay.SetActive(true);
     }
 
     public void Resume()
     {
-        _OnResumeEvent();
+        _OnResume();
         _pause = false;
         _pauseDisplay.SetActive(false);
     }
