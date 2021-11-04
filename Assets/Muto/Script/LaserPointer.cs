@@ -17,7 +17,8 @@ public class LaserPointer : MonoBehaviour
             var ray = Physics2D.Raycast(_pivot.transform.position, _pivot.transform.up, _rayDistance, _objectLayer);
             var ray1 = Physics2D.Raycast(_pivot.transform.position, _pivot.transform.up, _rayDistance, _playerLayer);
             Debug.DrawRay(_pivot.transform.position, _pivot.transform.up * _rayDistance, Color.red);
-            
+            _lineRenderer.SetPosition(0, _pivot.transform.position);
+
             if(ray)
             {
                 _lineRenderer.SetPosition(1, new Vector3(ray.point.x, ray.point.y, 0.1f));
