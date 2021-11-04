@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     Image _fade;
     [Tooltip("画面が白くなっていくのにかかる時間")]
     [SerializeField] float _chengeTime;
+    [Tooltip("Timerコンポーネント")]
+    [SerializeField] Timer _timer;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +85,8 @@ public class GameManager : MonoBehaviour
     public void Goal()
     {
         _endCanvas.SetActive(true);
-        _endText.text = $"{_nowScene.name}\nClear";
+        _timer.Stop();
+        _endText.text = $"{_nowScene.name}  Clear\nClear  Time{_timer._Timer.ToString("0.00")}";
         StartCoroutine(EndStay());
     }
 

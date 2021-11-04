@@ -18,6 +18,8 @@ public class PlayerLifeManager : MonoBehaviour
     [SerializeField] float _waitTime;
     [Tooltip("RespownCanvasのインスタンス下のテキスト")]
     [SerializeField] Text _text;
+    [Tooltip("タイマーコンポーネント")]
+    [SerializeField] Timer _timer;
 
     private void Start()
     {
@@ -60,6 +62,7 @@ public class PlayerLifeManager : MonoBehaviour
         transform.position = _checkPoint.position;
         this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         _whiteOut.SetActive(true);
+        _timer.Stop();
         _text.text = $"Life {_life}";
         StartCoroutine(RespownStay());
     }
@@ -68,6 +71,7 @@ public class PlayerLifeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_waitTime);
         _whiteOut.SetActive(false);
+        _timer.Start();
         _gm.Resume();
     }
 }
