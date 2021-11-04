@@ -7,11 +7,11 @@ public class PlayerLifeManager : MonoBehaviour
 
     [SerializeField] int _life;
     [SerializeField] GameManager _gm;
-    Transform _checkPoint;
+    [SerializeField] Transform _checkPoint;
 
     private void Start()
     {
-        _checkPoint = transform;
+        transform.position = _checkPoint.position;
     }
 
     public void Damage()
@@ -44,6 +44,6 @@ public class PlayerLifeManager : MonoBehaviour
     public void Respown()
     {
         transform.position = _checkPoint.position;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }
